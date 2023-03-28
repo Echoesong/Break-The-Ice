@@ -12,10 +12,11 @@
             </tr>
         </thead>
         <tbody>
+            <% allIcebreakers.forEach(function(f) { %>
             <tr>
-                <td>What's the most interesting place you've been?</td>
-                <td class="center">Travel</td>
-                <td class="center">5</td>
+                <td><%= f.content %></td>
+                <td class="center"><%= f.topic %></td>
+                <td class="center">#</td>
                 <td><a href="#">See Answers</a></td>
                 <td>
                     <form action="">
@@ -23,6 +24,7 @@
                     </form>
                 </td>
             </tr>
+            <% })%>
             <tr>
                 <td>What's the best meal you've ever had?</td>
                 <td class="center">Food</td>

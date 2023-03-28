@@ -14,7 +14,14 @@ function newIcebreaker(req, res){
 }
 
 function index(req, res) {
-    res.render('icebreakers/index', { title: 'All Icebreakers'})
+    Icebreaker.find({})
+    .then(function(allIcebreakers) {
+        res.render('icebreakers/index', { title: 'All Icebreakers', allIcebreakers})
+    })
+    .catch(function(err){
+        console.log()
+        res.render('/')
+    })
 }
 
 function create(req, res){
