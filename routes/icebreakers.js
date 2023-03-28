@@ -1,11 +1,9 @@
 const express = require('express');
 const router = express.Router();
 
-const icebreakerCtrl = require('../controllers/icebreakers')
+const icebreakersCtrl = require('../controllers/icebreakers')
 
-router.get('/new', function(req, res){
-    res.send('hitting new')
-})
+router.get('/new', icebreakersCtrl.new)
 
 
 
