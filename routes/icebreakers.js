@@ -7,5 +7,7 @@ router.get('/new', icebreakersCtrl.new)
 
 router.get('/', icebreakersCtrl.index)
 
+router.post('/', icebreakersCtrl.create)
+
 
 module.exports = router
