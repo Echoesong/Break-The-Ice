@@ -26,13 +26,10 @@ const icebreakerSchema = new Schema({
         type: String,
         enum: ['Travel', 'Entertainment', 'Food', 'Misc' ]
     },
-    answers: [answerSchema],
+    answers: [responseSchema],
     answerCount: {type: Number}
 }, {
     timestamps: true
 })
-
-
-
 
 module.exports = mongoose.model('Icebreaker', icebreakerSchema)

@@ -14,4 +14,7 @@ router.post('/', icebreakersCtrl.create)
 //Route for show //
 router.get('/:id', icebreakersCtrl.show)
 
+// Route to render Update view
+router.get('/:id/edit', icebreakersCtrl.edit)
+
 module.exports = router

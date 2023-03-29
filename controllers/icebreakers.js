@@ -4,7 +4,8 @@ module.exports = {
     new: newIcebreaker,
     index,
     create,
-    show
+    show,
+    edit
 
 }
 
@@ -48,6 +49,23 @@ function show(req, res) {
         // return foundIcebreaker = Icebreaker
         res.render('icebreakers/show', {
             title: "Icebreaker Details",
+            icebreaker 
+        })
+    })
+    .catch(function (err) {
+        console.log(err)
+
+        res.redirect('/')
+    })
+}
+
+function edit(req, res){
+    console.log(req.params)
+    Icebreaker.findById(req.params.id)
+    .then(function (icebreaker){
+        // return foundIcebreaker = Icebreaker
+        res.render('icebreakers/edit', {
+            title: "Edit Icebreaker",
             icebreaker 
         })
     })
