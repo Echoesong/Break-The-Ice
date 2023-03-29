@@ -10,6 +10,7 @@ require('./config/database')
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 const icebreakersRouter = require('./routes/icebreakers')
+const responsesRouter = require('./routes/responses')
 
 var app = express();
 
@@ -26,7 +27,9 @@ app.use(methodOverride('_method'))
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/', responsesRouter)
 app.use('/icebreakers', icebreakersRouter)
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
