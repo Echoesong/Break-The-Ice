@@ -1,5 +1,9 @@
 <%- include("../partials/header", {title}) %>
 <!-- <h1>I can see it in your eyes</h1> -->
+<form action="/icebreakers/<%=icebreaker._id%>/edit">
+    <button type="submit">Edit Icebreaker</button>
+</form>
+
 <ul>
     <li>Ice Breaker: <%= icebreaker.content%></li>
     <li>Topic: <%= icebreaker.topic%></li>
@@ -13,6 +17,8 @@
     </label>
     <br><button type="submit">Submit</button>
 </form>
+
+
 
     
 
