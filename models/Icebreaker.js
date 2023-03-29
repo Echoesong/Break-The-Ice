@@ -1,6 +1,22 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
+const responseSchema = new Schema({
+    content: {
+        type: String,
+        required: true
+    },
+    name: {
+        type: String,
+        required: true
+    },
+    submissionDate: {
+        type: Date
+    }
+}, {
+    timestamps: true
+})
+
 const icebreakerSchema = new Schema({
     content: {
         type: String, 
@@ -10,15 +26,8 @@ const icebreakerSchema = new Schema({
         type: String,
         enum: ['Travel', 'Entertainment', 'Food', 'Misc' ]
     },
-    answers:{
-        // Eventually, this will reference another model of Answers. Currently putting a string to confirm it exists
-        type: String
-    },
-    answerCount: {
-        type: Number
-    }
-
-
+    answers: [answerSchema],
+    answerCount: {type: Number}
 }, {
     timestamps: true
 })
