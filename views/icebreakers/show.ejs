@@ -8,7 +8,7 @@
     <li>Ice Breaker: <%= icebreaker.content%></li>
     <li>Topic: <%= icebreaker.topic%></li>
 </ul>
-<form action="/url" method="POST">
+<form action="/icebreakers/<%=icebreaker._id%>/responses" method="POST">
     <label>Answer:
         <input type="text" name="content">
     </label>
