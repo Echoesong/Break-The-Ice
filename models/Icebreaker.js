@@ -6,13 +6,14 @@ const responseSchema = new Schema({
         type: String,
         required: true
     },
-    name: {
+    author: {
         type: String,
         required: true
     },
     submissionDate: {
         type: Date
-    }
+    },
+   
 }, {
     timestamps: true
 })

@@ -5,7 +5,8 @@ module.exports = {
     index,
     create,
     show,
-    edit
+    edit,
+    update
 
 }
 
@@ -84,7 +85,7 @@ function update(req, res){
     })
     .then( function (){
         // Unsure if template literal points to the correct place
-        res.redirect(`icebreakers/${req.params.id}`)
+        res.redirect(`/icebreakers/${req.params.id}`)
     })
     .catch( function(err){
         console.log(err)
