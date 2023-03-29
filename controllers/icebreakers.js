@@ -6,7 +6,8 @@ module.exports = {
     create,
     show,
     edit,
-    update
+    update,
+    delete: destroy
 
 }
 
@@ -92,3 +93,15 @@ function update(req, res){
         res.redirect('/')
     })
 }
+
+function destroy(req, res) {
+    Icebreaker.findByIdAndDelete(req.params.id)
+    .then(function(icebreaker){
+        return res.redirect('/icebreakers')
+    })
+    .catch( function(err){
+        console.log(err)
+        res.redirect('/')
+    })
+}
+

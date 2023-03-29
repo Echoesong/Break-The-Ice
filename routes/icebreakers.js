@@ -23,4 +23,6 @@ router.get('/:id', icebreakersCtrl.show)
 // Route to update specific Icebreaker
 router.put('/:id', icebreakersCtrl.update)
 
+router.delete('/:id', icebreakersCtrl.delete)
+
 module.exports = router
