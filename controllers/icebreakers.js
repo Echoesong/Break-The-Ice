@@ -4,7 +4,8 @@ module.exports = {
     new: newIcebreaker,
     index,
     create,
-    show
+    show,
+    edit
 
 }
 
@@ -54,6 +55,39 @@ function show(req, res) {
     .catch(function (err) {
         console.log(err)
 
+        res.redirect('/')
+    })
+}
+
+function edit(req, res){
+    console.log(req.params)
+    Icebreaker.findById(req.params.id)
+    .then(function (icebreaker){
+        // return foundIcebreaker = Icebreaker
+        res.render('icebreakers/edit', {
+            title: "Edit Icebreaker",
+            icebreaker 
+        })
+    })
+    .catch(function (err) {
+        console.log(err)
+
+        res.redirect('/')
+    })
+}
+
+function update(req, res){
+    Icebreaker.findByIdAndUpdate(req.params.id, req.body)
+    .then( function(icebreaker){
+        console.log(icebreaker)
+        return icebreaker.save()
+    })
+    .then( function (){
+        // Unsure if template literal points to the correct place
+        res.redirect(`icebreakers/${req.params.id}`)
+    })
+    .catch( function(err){
+        console.log(err)
         res.redirect('/')
     })
 }
