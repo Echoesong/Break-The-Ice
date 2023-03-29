@@ -3,7 +3,8 @@ const Icebreaker = require('../models/Icebreaker')
 module.exports = {
     new: newIcebreaker,
     index,
-    create
+    create,
+    show
 
 }
 
@@ -36,6 +37,23 @@ function create(req, res){
     })
     .catch(function (err){
         console.log(err)
+        res.redirect('/')
+    })
+}
+
+function show(req, res) {
+    console.log(req.params)
+    Icebreaker.findById(req.params.id)
+    .then(function (icebreaker){
+        // return foundIcebreaker = Icebreaker
+        res.render('icebreakers/show', {
+            title: "Icebreaker Details",
+            icebreaker 
+        })
+    })
+    .catch(function (err) {
+        console.log(err)
+
         res.redirect('/')
     })
 }
