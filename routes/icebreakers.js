@@ -17,4 +17,7 @@ router.get('/:id', icebreakersCtrl.show)
 // Route to render Update view
 router.get('/:id/edit', icebreakersCtrl.edit)
 
+// Route to update specific Icebreaker
+router.put('/:id', icebreakersCtrl.update)
+
 module.exports = router

@@ -75,3 +75,19 @@ function edit(req, res){
         res.redirect('/')
     })
 }
+
+function update(req, res){
+    Icebreaker.findByIdAndUpdate(req.params.id, req.body)
+    .then( function(icebreaker){
+        console.log(icebreaker)
+        return icebreaker.save()
+    })
+    .then( function (){
+        // Unsure if template literal points to the correct place
+        res.redirect(`icebreakers/${req.params.id}`)
+    })
+    .catch( function(err){
+        console.log(err)
+        res.redirect('/')
+    })
+}
