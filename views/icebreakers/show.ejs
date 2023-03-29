@@ -1,3 +1,22 @@
 <%- include("../partials/header", {title}) %>
-<h1>I can see it in your eyes</h1>
+<!-- <h1>I can see it in your eyes</h1> -->
+<ul>
+    <li>Ice Breaker: <%= icebreaker.content%></li>
+    <li>Topic: <%= icebreaker.topic%></li>
+</ul>
+<form action="/url" method="POST">
+    <label>Answer:
+        <input type="text" name="content">
+    </label>
+    <br><label>Your Name:
+        <input type="text" name="author">
+    </label>
+    <br><button type="submit">Submit</button>
+</form>
+
+    
+
+
+
+
 <%- include("../partials/footer") %>
