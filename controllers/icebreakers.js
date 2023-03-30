@@ -73,7 +73,6 @@ function edit(req, res){
     })
     .catch(function (err) {
         console.log(err)
-
         res.redirect('/')
     })
 }

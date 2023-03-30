@@ -3,6 +3,7 @@ const Icebreaker = require('../models/Icebreaker')
 module.exports = {
     create, 
     edit, 
+    update,
     delete: destroy
 }
 
@@ -33,10 +34,33 @@ function edit(req, res){
         console.log(foundAnswer)
         res.render('responses/edit', {
             title: "Edit Answer", 
-            foundAnswer
+            answer: foundAnswer
         })
     })
     .catch( function(err){
+        console.log(err)
+        res.redirect('/')
+    })
+}
+
+function update(req, res){
+    let foundIcebreaker
+
+    Icebreaker.findOne({'answers._id': req.params.id})
+    .then( function(icebreaker) {
+        return foundIcebreaker = icebreaker
+    })
+    .then( function() {
+        return foundIcebreaker.answers.remove(req.params.id)
+    })
+    .then( function() {
+        foundIcebreaker.answers.push(req.body)
+        return foundIcebreaker.save()
+    })
+    .then( function() {
+        res.redirect(`/icebreakers/${foundIcebreaker._id}`)
+    })
+    .catch(function (err) {
         console.log(err)
         res.redirect('/')
     })
