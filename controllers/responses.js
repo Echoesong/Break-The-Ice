@@ -24,17 +24,19 @@ function create(req, res){
 }
 
 function edit(req, res){
-    let foundAnswer
+    let foundAnswer, foundIcebreaker
 
     Icebreaker.findOne({'answers._id': req.params.id})
     .then( function(icebreaker) {
+        foundIcebreaker = icebreaker
         return foundAnswer = icebreaker.answers.id(req.params.id)
     })
     .then( function() {
         console.log(foundAnswer)
         res.render('responses/edit', {
             title: "Edit Answer", 
-            answer: foundAnswer
+            answer: foundAnswer, 
+            icebreaker: foundIcebreaker
         })
     })
     .catch( function(err){
