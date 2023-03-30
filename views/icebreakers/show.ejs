@@ -29,6 +29,7 @@
                         <th>Answers</th>
                         <th>Author</th>
                         <th>Date</th>
+                        <th>Delete</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -37,6 +38,11 @@
                         <td><%= answer.content%></td>
                         <td><%= answer.author%></td>
                         <td><%= answer.createdAt.toLocaleDateString()%></td>
+                        <td>
+                            <form action="/responses/<%= answer._id%>?_method=DELETE" method="POST">
+                                <button type="submit">Delete</button>
+                            </form>
+                        </td>
                     </tr>
                     <% }) %>
                 </tbody>

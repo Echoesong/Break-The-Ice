@@ -45,7 +45,6 @@ function create(req, res){
 }
 
 function show(req, res) {
-    console.log(req.params)
     Icebreaker.findById(req.params.id)
     .then(function (icebreaker){
         // return foundIcebreaker = Icebreaker
@@ -62,7 +61,6 @@ function show(req, res) {
 }
 
 function edit(req, res){
-    console.log(req.params)
     Icebreaker.findById(req.params.id)
     .then(function (icebreaker){
         // return foundIcebreaker = Icebreaker
@@ -81,7 +79,6 @@ function edit(req, res){
 function update(req, res){
     Icebreaker.findByIdAndUpdate(req.params.id, req.body)
     .then( function(icebreaker){
-        console.log(icebreaker)
         return icebreaker.save()
     })
     .then( function (){
@@ -95,8 +92,8 @@ function update(req, res){
 }
 
 function destroy(req, res) {
-    Icebreaker.findByIdAndDelete(req.params.id)
-    .then(function(icebreaker){
+    Icebreaker.Response.findByIdAndDelete(req.params.id)
+    .then(function(){
         return res.redirect('/icebreakers')
     })
     .catch( function(err){
@@ -104,4 +101,3 @@ function destroy(req, res) {
         res.redirect('/')
     })
 }
-
