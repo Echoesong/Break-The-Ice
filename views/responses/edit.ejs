@@ -1,0 +1,24 @@
+<%- include("../partials/header", {title}) %>
+
+<div class="container">
+
+    <form action="/responses/<%=answer._id%>?_method=PUT" method="POST">
+
+        <div class="form-floating mb-3">
+            <input type="text" name="content" class="form-control" id="answerInput" placeholder="<%= answer.content%>" required>
+            <label for="answerInput">Replace this: <%= answer.content%></label>
+        </div>
+
+        <div class="form-floating mb-3">
+            <input type="text" name="author" class="form-control" id="authorInput" placeholder="<%= answer.author %>" required>
+            <label for="authorInput">Replace this: <%= answer.author %></label>
+        </div>
+
+        <div class="d-grid gap-2 col-5 mx-auto">
+            <button class="btn btn-primary btn-sm" type='submit'>Submit</button>
+        </div>
+
+    </form>
+</div>
+
+<%- include("../partials/footer") %>
