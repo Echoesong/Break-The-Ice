@@ -1,22 +1,29 @@
 <%- include("../partials/header", {title}) %>
+
     <div class="container">
-    <form action="/icebreakers" method="POST">
-        <div class="form-floating mb-3">
-            <input type="text" name="content" class="form-control" id="floatingInput" placeholder="Type your question" required>
-            <label for="floatingInput">Type your question</label>
-        </div>
-        <div class="form-floating">
-            <select class="form-select" id="floatingSelect" aria-label="Select a topic" name="topic">
-                <option value="Travel">Travel</option>
-                <option value="Entertainment">Entertainment</option>
-                <option value="Food">Food</option>
-                <option value="Misc">Misc</option>
-            </select>
-            <label for="floatingSelect">Select a Topic</label>
-        </div>
-        <div class="d-grid gap-2 col-5 mx-auto">
-            <button class="btn btn-primary" type='submit'> Submit</button>
-        </div>
-    </form>
+        <form action="/icebreakers" method="POST">
+
+            <div class="form-floating mb-3">
+                <input type="text" name="content" class="form-control" id="floatingInput"
+                    placeholder="Type your question" required>
+                <label for="floatingInput">Type your question</label>
+            </div>
+
+            <div class="form-floating">
+                <select class="form-select" id="floatingSelect" aria-label="Select a topic" name="topic">
+                    <option value="Travel">Travel</option>
+                    <option value="Entertainment">Entertainment</option>
+                    <option value="Food">Food</option>
+                    <option value="Misc">Misc</option>
+                </select>
+                <label for="floatingSelect">Select a Topic</label>
+            </div>
+
+            <div class="d-grid gap-2 col-5 mx-auto">
+                <button class="btn btn-primary" type='submit'>Submit</button>
+            </div>
+
+        </form>
     </div>
-<%- include("../partials/footer") %>
+
+    <%- include("../partials/footer") %>
