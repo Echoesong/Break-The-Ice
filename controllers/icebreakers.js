@@ -19,6 +19,8 @@ function newIcebreaker(req, res){
 
 function index(req, res) {
     Icebreaker.find({})
+    .sort('topic')
+    // .sort('topic, answers.length')
     .then(function(allIcebreakers) {
         res.render('icebreakers/index', { title: 'All Icebreakers', allIcebreakers})
     })

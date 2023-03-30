@@ -2,6 +2,7 @@ const Icebreaker = require('../models/Icebreaker')
 
 module.exports = {
     create, 
+    edit, 
     delete: destroy
 }
 
@@ -14,6 +15,26 @@ function create(req, res){
     })
     .then( function (icebreaker){
         res.redirect(`/icebreakers/${req.params.id}`)
+    })
+    .catch( function(err){
+        console.log(err)
+        res.redirect('/')
+    })
+}
+
+function edit(req, res){
+    let foundAnswer
+
+    Icebreaker.findOne({'answers._id': req.params.id})
+    .then( function(icebreaker) {
+        return foundAnswer = icebreaker.answers.id(req.params.id)
+    })
+    .then( function() {
+        console.log(foundAnswer)
+        res.render('responses/edit', {
+            title: "Edit Answer", 
+            foundAnswer
+        })
     })
     .catch( function(err){
         console.log(err)
