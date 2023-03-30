@@ -14,7 +14,7 @@ module.exports = {
 // functions go below
 
 function newIcebreaker(req, res){
-    res.render('icebreakers/new', {title: 'Add Icebreaker'})
+    res.render('icebreakers/new', {title: 'Add an Icebreaker'})
 }
 
 function index(req, res) {

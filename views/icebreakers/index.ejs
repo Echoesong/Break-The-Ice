@@ -1,41 +1,24 @@
 <%- include("../partials/header", {title}) %>
 
 <section>
-    <table>
+    <table class="table table-striped">
         <thead>
             <tr>
                 <th>Icebreaker</th>
-                <th>Topic</th>
-                <th># of Answers</th>
-                <th>Details</th>
-                <th> </th>
+                <th class="center">Topic</th>
+                <th class="center"># of Answers</th>
+                <th class="center">Details</th>
             </tr>
         </thead>
         <tbody>
-            <% allIcebreakers.forEach(function(f) { %>
+            <% allIcebreakers.forEach(function(i) { %>
             <tr>
-                <td><%= f.content %></td>
-                <td class="center"><%= f.topic %></td>
-                <td class="center">#</td>
-                <td><a href="/icebreakers/<%=f._id%> ">See Answers</a></td>
-                <td>
-                    <form action="">
-                        <button>🚮</button>
-                    </form>
-                </td>
+                <td><%= i.content %></td>
+                <td class="center"><%= i.topic %></td>
+                <td class="center"><%= i.answers.length%></td>
+                <td class="center"><a href="/icebreakers/<%=i._id%> ">See Answers</a></td>
             </tr>
             <% })%>
-            <tr>
-                <td>What's the best meal you've ever had?</td>
-                <td class="center">Food</td>
-                <td class="center">3</td>
-                <td><a href="#">See Answers</a></td>
-                <td>
-                    <form action="">
-                        <button>🚮</button>
-                    </form>
-                </td>
-            </tr>
         </tbody>
     </table>
 </section>
