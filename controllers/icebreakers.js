@@ -19,7 +19,7 @@ function newIcebreaker(req, res){
 
 function index(req, res) {
     Icebreaker.find({})
-    .sort('topic')
+    .sort({topic: 'asc', responseCount: 'desc'})
     .then(function(allIcebreakers) {
         res.render('icebreakers/index', { title: 'All Icebreakers', allIcebreakers})
     })
