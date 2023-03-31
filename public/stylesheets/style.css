@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
+
 body {
-  font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: 'Roboto Slab', serif;
   font-size: 14px; 
 }
 
