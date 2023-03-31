@@ -11,6 +11,7 @@ function create(req, res){
     Icebreaker.findById(req.params.id)
     .then( function(icebreaker){
         icebreaker.responses.push(req.body)
+        icebreaker.responseCount++
         return icebreaker.save()
     })
     .then( function (){
@@ -74,6 +75,7 @@ function destroy(req, res){
         return foundIcebreaker = icebreaker
     })
     .then( function() {
+        foundIcebreaker.responseCount--
         return foundIcebreaker.responses.remove(req.params.id)
     })
     .then( function(){
