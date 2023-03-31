@@ -19,7 +19,7 @@ function newIcebreaker(req, res){
 
 function index(req, res) {
     Icebreaker.find({})
-    .sort('topic')
+    .sort({topic: 'asc', responseCount: 'desc'})
     .then(function(allIcebreakers) {
         res.render('icebreakers/index', { title: 'All Icebreakers', allIcebreakers})
     })
@@ -31,9 +31,12 @@ function index(req, res) {
 
 function create(req, res){
     Icebreaker.create(req.body)
+    .then( function(newIcebreaker){
+        newIcebreaker.responseCount=0
+        return newIcebreaker.save()
+    })
     .then(function (newIcebreaker){
-        // Eventually, it would be ideal to route to '/icebreakers/${newIcebreaker._id}. For now route back to index
-        res.redirect('/')
+        res.redirect(`/icebreakers/${newIcebreaker._id}`)
     })
     .catch(function (err){
         console.log(err)
