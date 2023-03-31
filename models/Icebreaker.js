@@ -25,7 +25,7 @@ const icebreakerSchema = new Schema({
     },
     topic: {
         type: String,
-        enum: ['Travel', 'Entertainment', 'Food', 'Misc' ]
+        enum: ['Travel', 'Entertainment', 'Food', 'Misc', 'Animals', 'Activities', 'Health' ]
     },
     responses: [responseSchema],
     responseCount: {type: Number}
