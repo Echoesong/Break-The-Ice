@@ -10,7 +10,7 @@ Node.js, Mongoose, MongoDB, Bootstrap, Heroku, GitHub, Lucidchart, EJS, Javascri
 
 # Getting Started
 
-Link to the app: [Break the Ice](https://ancient-springs-28484.herokuapp.com/icebreakers) 
+Link to the app: [Break the Ice](https://break-the-ice-app.herokuapp.com/icebreakers) 
 
 Link to the planning board: [Trello](https://trello.com/b/chzCQkuT/project-2)
 
