@@ -1,35 +1,33 @@
 <%- include("../partials/header", {title}) %>
 
-<div class="container">
-
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                Icebreaker: <%= icebreaker.content%>
+    <div class="container mb-3">
+        <div class="row align-items-center">
+            <div class="col-8">
+                <h3><%= icebreaker.content%></h3> 
             </div>
-            <div class="col-6">
-                Topic: <%= icebreaker.topic%>
+            <div class="col-4">
+                <h3>Topic: <%= icebreaker.topic%></h3>
             </div>
         </div>
     </div>
 
-    <form action="/responses/<%=answer._id%>?_method=PUT" method="POST">
+    <div class="container">
+        <form action="/responses/<%=answer._id%>?_method=PUT" method="POST">
 
-        <div class="form-floating mb-3">
-            <input type="text" name="content" class="form-control" id="answerInput" placeholder="Edit your answer" value="<%=answer.content%>">
-            <label for="answerInput">Edit your answer</label>
-        </div>
+            <div class="form-floating mb-3">
+                <input type="text" name="content" class="form-control" id="answerInput" placeholder="Edit your answer" value="<%=answer.content%>" required>
+                <label for="answerInput">Edit your answer</label>
+            </div>
 
-        <div class="form-floating mb-3">
-            <input type="text" name="author" class="form-control" id="authorInput" placeholder="Edit your name" value="<%=answer.author%>">
-            <label for="authorInput">Edit your name</label>
-        </div>
+            <div class="form-floating mb-3">
+                <input type="text" name="author" class="form-control" id="authorInput" placeholder="Edit your name" value="<%=answer.author%>" required>
+                <label for="authorInput">Edit your name</label>
+            </div>
 
-        <div class="d-grid gap-2 col-5 mx-auto">
-            <button class="btn btn-primary btn-sm" type='submit'>Submit</button>
-        </div>
-
-    </form>
-</div>
+            <div class="d-grid gap-2 col-4 mx-auto">
+                <button class="btn btn-primary btn-md" type='submit'>Submit</button>
+            </div>
+        </form>
+    </div>
 
 <%- include("../partials/footer") %>
