@@ -10,7 +10,7 @@ module.exports = {
 function create(req, res){
     Icebreaker.findById(req.params.id)
     .then( function(icebreaker){
-        icebreaker.answers.push(req.body)
+        icebreaker.responses.push(req.body)
         return icebreaker.save()
     })
     .then( function (){
@@ -23,17 +23,17 @@ function create(req, res){
 }
 
 function edit(req, res){
-    let foundAnswer, foundIcebreaker
+    let foundResponse, foundIcebreaker
 
-    Icebreaker.findOne({'answers._id': req.params.id})
+    Icebreaker.findOne({'responses._id': req.params.id})
     .then( function(icebreaker) {
         foundIcebreaker = icebreaker
-        return foundAnswer = icebreaker.answers.id(req.params.id)
+        return foundResponse = icebreaker.responses.id(req.params.id)
     })
     .then( function() {
         res.render('responses/edit', {
-            title: "Edit Answer", 
-            answer: foundAnswer, 
+            title: "Edit Response", 
+            response: foundResponse, 
             icebreaker: foundIcebreaker
         })
     })
@@ -46,15 +46,15 @@ function edit(req, res){
 function update(req, res){
     let foundIcebreaker
 
-    Icebreaker.findOne({'answers._id': req.params.id})
+    Icebreaker.findOne({'responses._id': req.params.id})
     .then( function(icebreaker) {
         return foundIcebreaker = icebreaker
     })
     .then( function() {
-        return foundIcebreaker.answers.remove(req.params.id)
+        return foundIcebreaker.responses.remove(req.params.id)
     })
     .then( function() {
-        foundIcebreaker.answers.push(req.body)
+        foundIcebreaker.responses.push(req.body)
         return foundIcebreaker.save()
     })
     .then( function() {
@@ -69,12 +69,12 @@ function update(req, res){
 function destroy(req, res){
     let foundIcebreaker
 
-    Icebreaker.findOne({'answers._id': req.params.id})
+    Icebreaker.findOne({'responses._id': req.params.id})
     .then( function(icebreaker) {
         return foundIcebreaker = icebreaker
     })
     .then( function() {
-        return foundIcebreaker.answers.remove(req.params.id)
+        return foundIcebreaker.responses.remove(req.params.id)
     })
     .then( function(){
         return foundIcebreaker.save()

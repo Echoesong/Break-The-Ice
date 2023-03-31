@@ -6,7 +6,7 @@
             <tr>
                 <th>Icebreaker</th>
                 <th class="center">Topic</th>
-                <th class="center"># of Answers</th>
+                <th class="center"># of Responses</th>
                 <th class="center">Details</th>
             </tr>
         </thead>
@@ -15,8 +15,8 @@
             <tr>
                 <td><%= i.content %></td>
                 <td class="center"><%= i.topic %></td>
-                <td class="center"><%= i.answers.length%></td>
-                <td class="center"><a href="/icebreakers/<%=i._id%> ">See Answers</a></td>
+                <td class="center"><%= i.responses.length%></td>
+                <td class="center"><a href="/icebreakers/<%=i._id%> ">See Responses</a></td>
             </tr>
             <% })%>
         </tbody>
