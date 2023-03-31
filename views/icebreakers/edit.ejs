@@ -10,14 +10,27 @@
 
             <div class="form-floating mb-3">
                 <select class="form-select" id="editTopic" aria-label="Change the topic" name="topic">
-                    <option value="Travel">Travel</option>
-                    <option value="Entertainment">Entertainment</option>
-                    <option value="Food">Food</option>
-                    <option value="Misc">Misc</option>
-                    <option value="Animals">Animals</option>
-                    <option value="Activities">Activities</option>
-                    <option value="Health">Health</option>
-
+                    <option value="Activities" <%= icebreaker.topic === 'Activites' ? 'selected' : '' %>>
+                        Activities
+                    </option>
+                    <option value="Animals" <%= icebreaker.topic === 'Animals' ? 'selected' : '' %>>
+                        Animals
+                    </option>
+                    <option value="Entertainment" <%= icebreaker.topic === 'Entertainment' ? 'selected' : '' %>>
+                        Entertainment
+                    </option>
+                    <option value="Food" <%= icebreaker.topic === 'Food' ? 'selected' : '' %>>
+                        Food
+                    </option>
+                    <option value="Health" <%= icebreaker.topic === 'Health' ? 'selected' : '' %>>
+                        Health
+                    </option>
+                    <option value="Misc" <%= icebreaker.topic === 'Misc' ? 'selected' : '' %>>
+                        Misc
+                    </option>
+                    <option value="Travel" <%= icebreaker.topic === 'Travel' ? 'selected' : '' %>>
+                        Travel
+                    </option>
                 </select>
                 <label for="editTopic">Change the Topic</label>
             </div>
