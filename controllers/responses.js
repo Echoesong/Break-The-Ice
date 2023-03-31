@@ -10,11 +10,10 @@ module.exports = {
 function create(req, res){
     Icebreaker.findById(req.params.id)
     .then( function(icebreaker){
-        console.log("req body:", req.body)
         icebreaker.answers.push(req.body)
         return icebreaker.save()
     })
-    .then( function (icebreaker){
+    .then( function (){
         res.redirect(`/icebreakers/${req.params.id}`)
     })
     .catch( function(err){
@@ -32,7 +31,6 @@ function edit(req, res){
         return foundAnswer = icebreaker.answers.id(req.params.id)
     })
     .then( function() {
-        console.log(foundAnswer)
         res.render('responses/edit', {
             title: "Edit Answer", 
             answer: foundAnswer, 

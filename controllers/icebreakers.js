@@ -37,7 +37,6 @@ function create(req, res){
     Icebreaker.create(req.body)
     .then(function (newIcebreaker){
         // Eventually, it would be ideal to route to '/icebreakers/${newIcebreaker._id}. For now route back to index
-        console.log(newIcebreaker)
         res.redirect('/')
     })
     .catch(function (err){
@@ -49,7 +48,6 @@ function create(req, res){
 function show(req, res) {
     Icebreaker.findById(req.params.id)
     .then(function (icebreaker){
-        // return foundIcebreaker = Icebreaker
         res.render('icebreakers/show', {
             title: "Icebreaker Details",
             icebreaker 
@@ -57,7 +55,6 @@ function show(req, res) {
     })
     .catch(function (err) {
         console.log(err)
-
         res.redirect('/')
     })
 }
@@ -65,7 +62,6 @@ function show(req, res) {
 function edit(req, res){
     Icebreaker.findById(req.params.id)
     .then(function (icebreaker){
-        // return foundIcebreaker = Icebreaker
         res.render('icebreakers/edit', {
             title: "Edit Icebreaker",
             icebreaker 
@@ -83,7 +79,6 @@ function update(req, res){
         return icebreaker.save()
     })
     .then( function (){
-        // Unsure if template literal points to the correct place
         res.redirect(`/icebreakers/${req.params.id}`)
     })
     .catch( function(err){
@@ -93,7 +88,7 @@ function update(req, res){
 }
 
 function destroy(req, res) {
-    Icebreaker.Response.findByIdAndDelete(req.params.id)
+    Icebreaker.findByIdAndDelete(req.params.id)
     .then(function(){
         return res.redirect('/icebreakers')
     })
