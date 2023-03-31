@@ -1,50 +1,71 @@
 <%- include("../partials/header", {title}) %>
-    <div class="container d-grid gap-2">
 
         <div class="container">
-            <div class="row">
-                <div class="col">
-                    Icebreaker: <%= icebreaker.content%>
+            <div class="row align-items-center">
+                <div class="col-8">
+                    <h3><%= icebreaker.content%></h3> 
                 </div>
-                <div class="col-6">
-                    Topic: <%= icebreaker.topic%>
+                <div class="col-4">
+                    <h3>Topic: <%= icebreaker.topic%></h3>
                 </div>
             </div>
         </div>
 
-        <div class="container d-grid gap-2">
-            <form action="/icebreakers/<%=icebreaker._id%>/edit">
-                <button class="btn btn-primary btn-sm" type="submit">Edit Icebreaker</button>
-            </form>
-    
-            <form action="/icebreakers/<%=icebreaker._id%>?_method=DELETE" method="POST">
-                <button class="btn btn-danger btn-sm" type="submit">Delete Icebreaker</button>
-            </form>
+        <div class="container mb-3">
+            <div class="row justify-content-start">
+                <% if(!icebreaker.answers.length) {%>
+                <div class="col-3 p-3">
+                    <form action="/icebreakers/<%=icebreaker._id%>/edit">
+                        <button class="btn btn-secondary btn-sm" type="submit">Edit Icebreaker</button>
+                    </form>
+                </div>
+                <% } %>
+                <div class="col-3 p-3">
+                    <form action="/icebreakers/<%=icebreaker._id%>?_method=DELETE" method="POST">
+                        <button class="btn btn-danger btn-sm" type="submit">Delete Icebreaker</button>
+                    </form>
+                </div>
+            </div>
         </div>
 
-        <% if (icebreaker.answers) { %>
+        <% if (icebreaker.answers.length) { %>
+        <div class="container mb-4">
+            <h2>Answers</h2>
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th>Answers</th>
-                        <th>Author</th>
-                        <th>Date</th>
+                        <th>Answer</th>
+                        <th class="center">Author</th>
+                        <th class="center">Date</th>
+                        <th> </th>
+                        <th> </th>
                     </tr>
                 </thead>
                 <tbody>
                     <% icebreaker.answers.forEach(function(answer){ %>
                     <tr>
-                        <td><%= answer.content%></td>
-                        <td><%= answer.author%></td>
-                        <td><%= answer.createdAt.toLocaleDateString()%></td>
+                        <td class="align-middle"><%= answer.content%></td>
+                        <td class="center align-middle"><%= answer.author%></td>
+                        <td class="center align-middle"><%= answer.createdAt.toLocaleDateString()%></td>
+                        <td class="center">
+                            <form action="/responses/<%= answer._id%>/edit">
+                                <button class="btn btn-secondary btn-sm" type="submit">Edit</button>
+                            </form>
+                        </td>
+                        <td>
+                            <form action="/responses/<%= answer._id%>?_method=DELETE" method="POST">
+                                <button class="btn btn-danger btn-sm" type="submit">Delete</button>
+                            </form>
+                        </td>
                     </tr>
                     <% }) %>
                 </tbody>
             </table>
+        </div>
         <% } %>
 
         <div class="container">
-            <div class="mb-2">Add Your Answer:</div>
+            <h3>Add Your Answer</h3>
             <form action="/icebreakers/<%=icebreaker._id%>/responses" method="POST">
 
                 <div class="form-floating mb-3">
@@ -57,12 +78,11 @@
                     <label for="authorInput">Type your name</label>
                 </div>
 
-                <div class="d-grid gap-2 col-5 mx-auto">
-                    <button class="btn btn-primary btn-sm" type='submit'>Submit</button>
+                <div class="d-grid gap-2 col-4 mx-auto">
+                    <button class="btn btn-primary btn-md" type='submit'>Submit</button>
                 </div>
 
             </form>
         </div>
 
-    </div>
     <%- include("../partials/footer") %>
