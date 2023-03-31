@@ -8,7 +8,6 @@ require('dotenv').config()
 require('./config/database')
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
 const icebreakersRouter = require('./routes/icebreakers')
 const responsesRouter = require('./routes/responses')
 
@@ -26,7 +25,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(methodOverride('_method'))
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
 app.use('/', responsesRouter)
 app.use('/icebreakers', icebreakersRouter)
 

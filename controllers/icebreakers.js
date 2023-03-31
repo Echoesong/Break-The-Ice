@@ -20,7 +20,6 @@ function newIcebreaker(req, res){
 function index(req, res) {
     Icebreaker.find({})
     .sort('topic')
-    // .sort('topic, answers.length')
     .then(function(allIcebreakers) {
         res.render('icebreakers/index', { title: 'All Icebreakers', allIcebreakers})
     })
@@ -31,9 +30,6 @@ function index(req, res) {
 }
 
 function create(req, res){
-    // What am I doing here?
-    // Incoming request that has a data packet of the data
-    // Take the incoming data, use it to populate the schema that we pull from the Model
     Icebreaker.create(req.body)
     .then(function (newIcebreaker){
         // Eventually, it would be ideal to route to '/icebreakers/${newIcebreaker._id}. For now route back to index
