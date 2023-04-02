@@ -10,7 +10,7 @@ Node.js, Mongoose, MongoDB, Bootstrap, Heroku, GitHub, Lucidchart, EJS, Javascri
 
 # Getting Started
 
-Link to the app: [Break the Ice](https://ancient-springs-28484.herokuapp.com/icebreakers) 
+Link to the app: [Break the Ice](https://break-the-ice-app.herokuapp.com/icebreakers) 
 
 Link to the planning board: [Trello](https://trello.com/b/chzCQkuT/project-2)
 
@@ -32,3 +32,4 @@ On each detail page, users can also delete the icebreaker, submit a response, de
 ![Example New Page](https://i.imgur.com/adIdrTu.png)
 ![Example Edit Icebreaker Page](https://i.imgur.com/nqgaFtx.png)
 ![Example Edit Response Page](https://i.imgur.com/ZUD2fvS.png)
+
