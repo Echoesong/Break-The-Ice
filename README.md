@@ -14,7 +14,9 @@ Link to the app: [Break the Ice](https://break-the-ice-app.herokuapp.com/icebrea
 
 Link to the planning board: [Trello](https://trello.com/b/chzCQkuT/project-2)
 
-Break the Ice opens with an index page showing all the icebreaker-style questions that users have submitted, ordered by topic and the number of responses. Each icebreaker includes a link to a detail page where users can view all the responses submitted for that question. On the detail page, users can also delete the icebreaker, submit a response, delete a response, or edit a response. The user also has the option to edit the icebreaker, but only if there have been no answers submitted. 
+Break the Ice opens with an index page showing all the icebreaker-style questions that users have submitted, ordered by topic and the number of responses. Each icebreaker includes a link to a detail page where users can view all the responses submitted for that question. 
+
+On each detail page, users can also delete the icebreaker, submit a response, delete a response, or edit a response. The user also has the option to edit the icebreaker, but only if there have been no answers submitted. 
 
 # Next Steps
 
@@ -27,4 +29,7 @@ Break the Ice opens with an index page showing all the icebreaker-style question
 # Screenshots
 
 ![Example Detail Page](https://i.imgur.com/k5jmWDP.png)
-![Example New Page](https://i.imgur.com/sQYhzJA.png)
+![Example New Page](https://i.imgur.com/adIdrTu.png)
+![Example Edit Icebreaker Page](https://i.imgur.com/nqgaFtx.png)
+![Example Edit Response Page](https://i.imgur.com/ZUD2fvS.png)
+

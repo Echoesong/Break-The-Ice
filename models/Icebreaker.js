@@ -10,9 +10,6 @@ const responseSchema = new Schema({
         type: String,
         required: true
     },
-    submissionDate: {
-        type: Date
-    },
    
 }, {
     timestamps: true
